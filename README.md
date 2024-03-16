@@ -1,5 +1,86 @@
 # Chinese Text Normalization for Speech Processing
 
+## Update 2024.03.16
+
+Fork from [chinese_text_normalization](https://github.com/speechio/chinese_text_normalization) and wrap it as Python Package.
+
+### Install
+
+~~~~
+# Install from Repo
+pip install git+https://github.com/bigchou/chinese_text_normalization.git
+
+# Install locally
+git clone https://github.com/bigchou/chinese_text_normalization.git
+pip install -v -e .
+~~~~
+
+### Demo
+
+Chinese Text Normalization
+~~~~
+python examples/demo.py
+
+"""
+input: | 　斯　特凡·维 逊斯~基～ApPle为？波兰罗!马天主?教　教「长」
+|
+output: |斯特凡維遜斯基apple爲波蘭羅馬天主教教長|
+------------------
+input: |決勝21點|
+output: |決勝二十一點|
+------------------
+input: |打戲特效100分|
+output: |打戲特效一百分|
+------------------
+input: |2.5平方电线|
+output: |二點五平方電線|
+------------------
+input: |人口    約佔0.4%|
+output: |人口約佔百分之零點四|
+------------------
+input: |成交單價為每坪60-98萬元|
+output: |成交單價為每坪六十九十八萬元|
+------------------
+input: |140.112|
+output: |一百四十點一一二|
+------------------
+input: |我在2018年|
+output: |我在二零一八年|
+------------------
+input: |15日李元君进子龙门|
+output: |十五日李元君進子龍門|
+------------------
+input: |2018年登进式第三甲第47名|
+output: |二零一八年登進式第三甲第四十七名|
+------------------
+"""
+~~~~
+
+Report CER
+~~~~
+python examples/reportCER.py --verbose
+
+"""
+prediction: |妳是妳，她是她|
+[AFTER CHINESE_NORM] prediction: |妳是妳她是她|
+[AFTER TESTTIME_NORM] prediction: |妳是你他是她|
+V.S.
+groundtruth: |妳是你，他是她|
+[AFTER CHINESE_NORM] groundtruth: |妳是你他是她|
+-------------------------------
+prediction: |在108年上線|
+[AFTER CHINESE_NORM] prediction: |在一百零八年上線|
+[AFTER TESTTIME_NORM] prediction: |在一百零八年上線|
+V.S.
+groundtruth: |在一百零八年上線|
+[AFTER CHINESE_NORM] groundtruth: |在一百零八年上線|
+"""
+-------------------------------
+CER: 0.0000
+~~~~
+
+
+
 ## Problem
 
 Search for "Text Normalization"(TN) on Google and Github, you can hardly find open-source projects that are "read-to-use" for text normalization tasks. Instead, you find a bunch of NLP toolkits or frameworks that *supports* TN functionality.  There is quite some work between "support text normalization" and "do text normalization".
