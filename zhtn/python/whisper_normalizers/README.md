@@ -1,0 +1,1 @@
+The follow code is borrowed from OPENAI-WHISPER (commit: [b80bcf6](https://github.com/openai/whisper/tree/b80bcf610d89960bc658b61af9c333fc6d978d78/whisper/normalizers) ).

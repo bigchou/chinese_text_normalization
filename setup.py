@@ -6,9 +6,11 @@ setup(
     packages=find_packages(),
     description='Chinese Text Normalization',
     install_requires=[
-        "opencc==1.1.6",
+        "opencc>=1.1.6",
         "jiwer==3.0.3",
         "evaluate>=0.4.1",
+        "regex",
+        "more_itertools"
     ],
 )
 
